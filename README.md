@@ -35,11 +35,11 @@ O projeto é composto por três partes: o software intermediário em Node.js, o 
 
 ### Software Intermediário em Node.js
 1. Instale o Node.js em seu ambiente de desenvolvimento.
-2. Copie o código fornecido do software intermediário em Node.js para um arquivo com extensão `.js`, como `mqtt-to-amqp.js`.
+2. Copie o código fornecido do software intermediário em Node.js para um arquivo com extensão `.js`, como `index.js`.
 3. Abra um terminal e navegue até o diretório onde o arquivo `.js` está localizado.
 4. Execute o comando `npm install mqtt amqplib` para instalar as dependências do projeto.
 5. Configure as variáveis `mqttBrokerUrl`, `mqttTopic`, `amqpBrokerUrl` e `amqpQueue` de acordo com suas configurações de brokers MQTT e AMQP.
-6. Execute o comando `node mqtt-to-amqp.js` para iniciar o software intermediário.
+6. Execute o comando `node index.js` para iniciar o software intermediário.
 
 ### Código do Dispositivo ESP
 1. Abra o código do dispositivo ESP em uma IDE compatível, como a Arduino IDE.

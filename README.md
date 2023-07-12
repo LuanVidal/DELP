@@ -1,4 +1,4 @@
-# Projeto Conexão ESP Servidor AMQP
+# Conexão ESP Servidor AMQP
 
 ## Descrição
 O projeto tem como objetivo estabelecer uma conexão entre um dispositivo ESP (como um microcontrolador ESP8266 ou ESP32) e um servidor AMQP (Advanced Message Queuing Protocol). A dificuldade principal reside na necessidade de converter as mensagens recebidas pelo dispositivo ESP, que estão no formato MQTT (Message Queuing Telemetry Transport), para o formato AMQP.

@@ -41,6 +41,13 @@ Após configurar o projeto, é possível adicionar elementos gráficos à IHM pa
 2. **Adição de Imagens no Projeto**: Abra o projeto no DGUS Software e acesse a seção "Image View". Clique no símbolo "+" e adicione as imagens convertidas em .bmp. Essas imagens poderão ser trabalhadas e configuradas conforme necessário.
 3. **Definição de Funcionalidades**: Atribua ações e comandos aos elementos gráficos da IHM para torná-los interativos. Por exemplo, configure um botão para acionar um pino de GPIO quando pressionado ou atualizar um valor dinâmico na tela.
 
+# Geração do Arquivo ICL
+
+1. Acesse a página "Welcome" e abra o "DWIN ICL Generator".
+2. Selecione as telas já convertidas para o formato .bmp.
+3. Clique em "Gerar ICL" e nomeie o arquivo como "32.ICL".
+4. Salve o arquivo ICL na pasta "DWIN_SET", dentro da pasta do projeto.
+
 ## Adição de Fontes Personalizadas
 
 O DGUS Software permite adicionar fontes personalizadas para personalizar a aparência da IHM. Siga as etapas abaixo para adicionar fontes personalizadas ao seu projeto:
@@ -61,4 +68,6 @@ Certifique-se de seguir as etapas descritas acima para criar e visualizar corret
 
 Lembre-se de que este documento fornece apenas um guia geral para a criação do projeto e pode ser necessário adaptar as instruções de acordo com as versões específicas do software e do hardware utilizados.
 
-Esperamos que esta documentação seja útil para o desenvolvimento de suas IHMs com o DGUS Software. Se você tiver alguma dúvida ou precisar de mais informações, não hesite em entrar em contato.
+Se você tiver alguma dúvida ou precisar de mais informações, não hesite em entrar em contato.
+
+Luan Vidal - TCX

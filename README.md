@@ -61,7 +61,7 @@ Este projeto demonstra uma solução básica para estabelecer a conexão entre u
 Lembre-se de consultar a documentação dos brokers MQTT e AMQP escolhidos para obter informações mais detalhadas sobre configuração, segurança e permissões de acesso.
 
 
-# ------------------------------------------------
+# ------------------------------------------------------------
 
 
 

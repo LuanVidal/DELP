@@ -9,6 +9,10 @@ const mqttTopic = 'esp_client';
 const amqpBrokerUrl = 'amqp://localhost:5672';
 const amqpQueue = 'remote';
 
+//const nomeUsuario = 'W4nuCL2HK09PrG8H';
+//const senha = '7NXYX2gGYHGxCIBKoN3UtsLfRh';
+
+
 // Conectando ao MQTT Broker
 const mqttClient = mqtt.connect(mqttBrokerUrl);
 
@@ -27,6 +31,7 @@ mqttClient.on('message', (topic, message) => {
   const payload = message.toString();
 
   // Conectando ao AMQP Broker
+    // amqpBrokerUrl, { username: nomeUsuario, password: senha }
   amqp.connect(amqpBrokerUrl)
     .then((amqpConnection) => {
       console.log('Conectado ao AMQP Broker');

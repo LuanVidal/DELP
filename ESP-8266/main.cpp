@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+#include <TimeLib.h>
 
 const char* SSID = "TCS_2G";
 const char* PASSWORD = "33331999";
@@ -7,7 +8,11 @@ const char* PASSWORD = "33331999";
 WiFiClient wifiClient;
 PubSubClient MQTT(wifiClient);
 
-const char* BROKER_MQTT = "192.168.0.34";
+//server ntp configuração
+const char* ntpServer = "pool.ntp.org";
+unsigned long epochTime; 
+
+const char* BROKER_MQTT = "192.168.0.53";
 const int BROKER_PORT = 1883;
 
 bool conectBroker = false;
@@ -22,10 +27,22 @@ void conectaWiFi();
 void conectaMQTT();
 void enviaValores(float tensao, float corrente);
 
+unsigned long getTime() {
+  time_t now;
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    //Serial.println("Failed to obtain time");
+    return(0);
+  }
+  time(&now);
+  return now;
+}
+
 void setup() {
   Serial.begin(115200);
   conectaWiFi();
   MQTT.setServer(BROKER_MQTT, BROKER_PORT);
+  configTime(0, 0, ntpServer);
 }
 
 void loop() {
@@ -92,9 +109,16 @@ void conectaMQTT() {
 }
 
 void enviaValores(float tensao, float corrente) {
-  char mqttMessage[200];
-  sprintf(mqttMessage, "Tensao:%.2fV | Corrente:%.2fA", tensao, corrente);
 
-  MQTT.publish(TOPIC_PUBLISH, mqttMessage);
+  epochTime = getTime();
+
+  char mqttMessageTensao[200];
+  sprintf(mqttMessageTensao, "{\"id_variavel\": %d, \"valor\": %.2f, \"data_hora\": %ld}", 29, tensao, epochTime);
+
+  char mqttMessageCorrente[200];
+  sprintf(mqttMessageCorrente, "{\"id_variavel\": %d, \"valor\": %.2f, \"data_hora\": %ld}", 28, corrente, epochTime);
+
+  MQTT.publish(TOPIC_PUBLISH, mqttMessageTensao);
+  MQTT.publish(TOPIC_PUBLISH, mqttMessageCorrente);
   delay(500);
 }

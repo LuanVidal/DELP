@@ -2,15 +2,14 @@ const mqtt = require('mqtt');
 const amqp = require('amqplib');
 
 // Configurações do MQTT Broker
-const mqttBrokerUrl = 'mqtt://localhost:1883';
+const mqttBrokerUrl = 'mqtt://192.168.0.53:1883';
 const mqttTopic = 'esp_client';
 
 // Configurações do AMQP Broker
-const amqpBrokerUrl = 'amqp://localhost:5672';
-const amqpQueue = 'remote';
-
-//const nomeUsuario = 'W4nuCL2HK09PrG8H';
-//const senha = '7NXYX2gGYHGxCIBKoN3UtsLfRh';
+const amqpBrokerUrl = 'amqp://W4nuCL2HK09PrG8H:7NXYX2gGYHGxCIBKoN3UtsLfRh@trends.injetoras.tcsapp.com.br:5672';
+const amqpQueue = 'measurements';
+const nomeUsuario = 'W4nuCL2HK09PrG8H';
+const senha = '7NXYX2gGYHGxCIBKoN3UtsLfRh';
 
 
 // Conectando ao MQTT Broker
@@ -31,8 +30,7 @@ mqttClient.on('message', (topic, message) => {
   const payload = message.toString();
 
   // Conectando ao AMQP Broker
-    // amqpBrokerUrl, { username: nomeUsuario, password: senha }
-  amqp.connect(amqpBrokerUrl)
+  amqp.connect(amqpBrokerUrl, {username: nomeUsuario, password: senha})
     .then((amqpConnection) => {
       console.log('Conectado ao AMQP Broker');
 

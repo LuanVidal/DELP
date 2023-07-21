@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const amqp = require('amqplib');
 
 // Configurações do MQTT Broker
-const mqttBrokerUrl = 'mqtt://192.168.0.53:1883';
+const mqttBrokerUrl = 'mqtt://192.168.0.60:1883';
 const mqttTopic = 'esp_client';
 
 // Configurações do AMQP Broker

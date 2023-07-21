@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include <TimeLib.h>
 
-const char* SSID = "TCS_2G";
-const char* PASSWORD = "33331999";
+const char* SSID = "DELP_IOT";
+const char* PASSWORD = "2023f4ff7872c2";
 
 WiFiClient wifiClient;
 PubSubClient MQTT(wifiClient);
@@ -12,7 +12,9 @@ PubSubClient MQTT(wifiClient);
 const char* ntpServer = "pool.ntp.org";
 unsigned long epochTime; 
 
-const char* BROKER_MQTT = "192.168.0.53";
+const char* BROKER_MQTT = "ec2-34-224-25-118.compute-1.amazonaws.com";
+const char* mqttUser = "Vn1zj0dwxiX9CmBM";
+const char* mqttPassword = "ld39C62kLj0Jv9VIxsmdnm257i45pP6H";
 const int BROKER_PORT = 1883;
 
 bool conectBroker = false;
